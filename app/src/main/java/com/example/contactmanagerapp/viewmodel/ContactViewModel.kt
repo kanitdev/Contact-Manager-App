@@ -49,7 +49,7 @@ class ContactViewModel(private val repository: ContactRepository): ViewModel(),O
         inputEmail.value = null
         isUpdateOrDelete = false
         saveOrUpdateBtnText.value = "Save"
-        clearAllOrDeleteBtnText.value = "Clear ALl"
+        clearAllOrDeleteBtnText.value = "Clear All"
     }
     fun clearAll() = viewModelScope.launch {
         repository.deleteAll()
@@ -90,11 +90,11 @@ class ContactViewModel(private val repository: ContactRepository): ViewModel(),O
     }
 
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
-        TODO("Not yet implemented")
+
     }
 
     override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
-        TODO("Not yet implemented")
+
     }
 
 

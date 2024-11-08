@@ -16,6 +16,7 @@ import com.example.contactmanagerapp.room.Contact
 import com.example.contactmanagerapp.room.ContactDatabase
 import com.example.contactmanagerapp.view.RecyclerViewAdapter
 import com.example.contactmanagerapp.viewmodel.ContactViewModel
+import com.example.contactmanagerapp.viewmodel.ViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,9 +32,10 @@ class MainActivity : AppCompatActivity() {
         //ROOM DATABASE
         val dao = ContactDatabase.getInstance(applicationContext).contactDAO
         val repository = ContactRepository(dao)
+        val factory = ViewModelFactory(repository)
 
         // VIEW MODEL
-        contactViewModel = ViewModelProvider(this).get(ContactViewModel::class.java)
+        contactViewModel = ViewModelProvider(this,factory).get(ContactViewModel::class.java)
         binding.contactViewModel = contactViewModel
         binding.lifecycleOwner  = this
 
